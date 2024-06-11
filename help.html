@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CHATBOT - Help</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    body {
+        height: 100%;
+        background-image: url("i4.webp");
+        background-color: #f8f9fa;
+    }
+    h1 {
+        color: #007bff;
+        font-size: 40px;
+        text-align: center;
+    }
+    p {
+        font-size: 15px;
+        margin: 10px 0;
+        text-align: center;
+    }
+    form {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .notification {
+        display: none;
+        padding: 15px;
+        margin-top: 20px;
+        border-radius: 5px;
+        background-color: #5cb85c;
+        color: white;
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">CHATBOT</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="home.html">Home</a></li>
+            <li class="active"><a href="#">Help</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <h1><b>CHATBOT - Help</b></h1>
+    <p>Need assistance? Use the form below to chat with our chatbots!</p>
+    <form id="chatForm">
+        <div class="form-group">
+            <label for="message">Type your message:</label>
+            <textarea class="form-control" id="message" rows="3" placeholder="Type your message here"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div class="notification" id="successNotification">Message sent successfully!</div>
+</div>
+<script>
+    $(document).ready(function(){
+        $('#chatForm').submit(function(e)
+        {
+            e.preventDefault();
+            $('#successNotification').fadeIn().delay(2000).fadeOut();
+            $('#message').val('');
+            window.href.location="n.html"
+        
+        });
+    });
+    
+</script>
+</body>
+</html>

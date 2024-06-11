@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CHATBOT</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<style>
+    body {
+        min-height: 100%;
+        background-image: url("i3.webp");
+        background-position: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar {
+        margin-bottom: 0;
+        border-radius: 0;
+    }
+
+    h1 {
+        color: #007bff;
+        font-size: 3vw; 
+        text-align: center;
+    }
+
+    p {
+        font-size: 1.5vw; 
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 2vw; 
+        border-radius: 1vw; 
+        margin-top: 2vw; 
+        display: none;
+    }
+
+    @media (max-width: 767px) {
+        body {
+            background-size: contain;
+        }
+
+        h1 {
+            font-size: 5vw;
+        }
+
+        p {
+            font-size: 2vw; 
+        }
+
+        .container {
+            padding: 5vw; 
+            border-radius: 5vw;
+            margin-top: 5vw; 
+        }
+    }
+</style>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand">CHATBOT</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.html">Home</a></li>
+        <li class="active"><a href="about.html">About</a></li>
+        <li class="active"><a href="form.html">Calculate</a></li>
+        <li class="active"><a href="chatbt.html">Chat</a></li>
+        <li><a href="help.html">Help</a></li>
+      </ul> 
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="n.html"><button class="btn btn-primary navbar-btn">Login</button></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h1><b>CHATBOT</b></h1>
+  <p>Chatbots will be your new best friend. </p>
+</div>
+<script>
+  $(document).ready(function(){
+    $(".container").fadeIn(1500);
+    $(".navbar").slideDown(1000);
+    $(".navbar-brand").fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500);
+    $(".navbar-btn").click(function(){
+      $(this).effect("shake");
+    });
+    $("h1").animate({ color: "#ff0000" }, 2000);
+    $("p").animate({ "marginLeft": "+=50px" }, "slow");
+    $(".navbar-btn").hover(function(){
+      $(this).fadeOut();
+    });
+    $(".navbar-btn").mouseout(function(){
+      $(this).fadeIn();
+    });
+    $(".container").animate({ "width": "+=50px", "height": "+=50px" }, "slow");
+    $(".navbar").animate({ backgroundColor: "#ffcc00" }, 1000).animate({ backgroundColor: "#000000" }, 1000);
+    $(document).mousemove(function(event) {
+      var msg = "Mouse position: " + event.pageX + ", " + event.pageY;
+      console.log(msg);
+    });
+    $("p").mouseover(function() {
+      $(this).css("color", "#ff0000");
+    });
+    setTimeout(function() {
+      window.location.href = "help.html";
+    }, 7000);
+  });
+</script>
+</body>
+</html>

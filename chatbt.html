@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="chatBotApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatBot Webform</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-sanitize.min.js"></script>
+  <script>
+    var app = angular.module('chatBotApp', ['ngSanitize']);
+    app.controller('ChatBotController', function($scope) {
+      $scope.messages = [];
+
+      $scope.sendMessage = function() {
+        var message = $scope.messageText;
+        $scope.messages.push({ text: message, fromUser: true });
+        var botResponse = generateBotResponse(message);
+        $scope.messages.push({ text: 'Bot response: ' + botResponse, fromUser: false });
+        $scope.messageText = '';
+      };
+
+      function generateBotResponse(userMessage) {
+        var responses = [
+          "Thanks for your message.Iam Fine!",
+          "I appreciate your input!"
+        ];
+        var randomIndex = Math.floor(Math.random() * responses.length);
+        return responses[randomIndex];
+      }
+    });
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('backgrond.jfif');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .chat-box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 100%;
+      max-width: 600px; 
+      height: 400px; 
+      overflow-y: auto; 
+      background-color: #fff; 
+    }
+    .message {
+      margin-bottom: 10px;
+    }
+    .from-user {
+      text-align: right;
+      color: blue;
+    }
+    .from-bot {
+      text-align: left;
+      color: green;
+    }
+    form {
+      max-width: 400px; 
+      margin-top: 20px;
+      padding: 10px; 
+    }
+    label {
+      display: block; 
+      margin-bottom: 5px;
+    }
+    input[type="text"],
+    input[type="email"] {
+      width: calc(100% - 20px);
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+    button[type="submit"] {
+      width: calc(100% - 20px); 
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body ng-controller="ChatBotController">
+  <div class="chat-box">
+    <div ng-repeat="message in messages" class="message" ng-class="{ 'from-user': message.fromUser, 'from-bot': !message.fromUser }">
+      {{ message.text }}
+    </div>
+  </div>
+  <form ng-submit="sendMessage()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" ng-model="name" required>
+    <label for="email">Email:</label>
+    <input type="email" id="email" ng-model="email" required>
+    <label for="message">Message:</label>
+    <input type="text" id="message" ng-model="messageText" required>
+    <button type="submit">Send</button>
+  </form>
+</body>
+</html>

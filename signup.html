@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Signup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+    max-width: 500px;
+    margin: 0 auto; 
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+        #logo {
+            width: 100px;
+            height: 100px;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="email"],
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: #ff0000;
+            margin-bottom: 10px;
+        }
+
+        .success-message {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        p a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="logo" src="cm.jpg" alt="Logo">
+        <h1>Create Chatbot Account</h1>
+        <form id="signForm" action="sign.php" method="post">
+            <label for="newEmail">Email:</label>
+            <input type="email" id="newEmail" name="newEmail" required>
+            <label for="newUsername">Username:</label>
+            <input type="text" id="newUsername" name="newUsername" required>
+            <label for="newPassword">Password:</label>
+            <input type="password" id="newPassword" name="newPassword" required>
+            <input type="submit" value="Signup">
+        </form>
+        <div id="errorMessage" class="error-message"></div>
+        <div id="successMessage" class="success-message"></div>
+        <p>Already have an account? <a href="n.html">Login</a></p>
+    </div>
+    <script>
+        document.getElementById("signForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var newEmail = document.getElementById("newEmail").value;
+            var newUsername = document.getElementById("newUsername").value;
+            var newPassword = document.getElementById("newPassword").value;
+            var errorMessageElement = document.getElementById("errorMessage");
+            var successMessageElement = document.getElementById("successMessage");
+            if (validateEmail(newEmail) && validateUsername(newUsername) && validatePassword(newPassword)) {
+                errorMessageElement.innerHTML = "";
+                successMessageElement.innerHTML = "Successfully signed up. You can now login.";
+                successMessageElement.style.display = "block";
+                successMessageElement.style.borderColor = "#a3d8a3";
+                successMessageElement.style.backgroundColor = "#e9f6e1";
+                successMessageElement.style.color = "#4CAF50";
+            } else {
+                errorMessageElement.innerHTML = "Invalid email, username, or password. Please check and try again.";
+                successMessageElement.innerHTML = "";
+                successMessageElement.style.display = "none";
+            }
+        });
+        function validateEmail(email) {
+            return /\S+@\S+\.\S+/.test(email);
+        }
+        function validateUsername(username) {
+            return username.trim() !== '';
+        }
+        function validatePassword(password) {
+            return password.length >= 6;
+        }
+    </script>
+</body>
+</html>

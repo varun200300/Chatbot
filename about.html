@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            min-height: 100%;
+            background-image: url("i3.webp");
+            background-position: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+    
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+    
+        h1 {
+            color:black;
+            font-size: 3vw;
+            text-align: center;
+        }
+    
+        p {
+            font-size: 1.5vw;
+            margin: 10px 0;
+            text-align: justify;
+        }
+    
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2vw;
+            border-radius: 1vw;
+            margin-top: 2vw;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%; /* make the image circular */
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 48px;
+            left: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+        @media (max-width: 767px) {
+            body {
+                background-size: contain;
+            }
+    
+            h1 {
+                font-size: 5vw;
+            }
+    
+            p {
+                font-size: 3vw;
+                text-align: justify;
+            }
+    
+            .container {
+                padding: 1vw;
+                border-radius: 1vw;
+                margin-top: 1vw;
+            }
+
+            img {
+                width: 70%;
+                margin: 0 auto;
+            }
+        }
+
+        .hs {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hs img {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>About us</h1> 
+        <div id="hs" class="hs">
+            <img src="abe.jpg" style="width:170px;height:170px;">
+            <p>
+                Welcome to our innovative and user-friendly chatbot web application! Developed using cutting-edge technologies like jQuery, HTML, CSS, JavaScript, and TypeScript, our platform offers a seamless and responsive user experience across all devices. Users can easily sign up and log in to access a wide range of features designed to simplify their academic tasks. One of our standout functionalities is the ability to calculate the total marks of various subjects, providing students with a quick and reliable way to track their academic performance. Additionally, our application includes a dedicated Help section where users can get instant solutions to their queries, ensuring they have the support they need at their fingertips. Whether you're a student looking to manage your grades or someone in need of real-time assistance, our chatbot web application is here to make your life easier and more efficient. We are committed to providing an exceptional user experience, and we continually update our platform with new features based on user feedback. Thank you for choosing our application, and we look forward to helping you achieve your academic goals.
+            </p>
+        </div>
+    </div>
+    <button class="back-button" onclick="goBack()">Back</button>    
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
